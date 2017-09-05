@@ -2,17 +2,17 @@ package main
 
 import "fmt"
 import (
-	"github.com/tealeg/xlsx"
-	"os"
-	"io/ioutil"
-	"encoding/json"
 	"bufio"
+	"encoding/json"
+	"github.com/tealeg/xlsx"
+	"io/ioutil"
+	"os"
 )
 
 type Config struct {
-	BasePath                 string    `json:"basePath"`
+	BasePath                 string `json:"basePath"`
 	XlsPath                  string `json:"xlsPath"`
-	FolderDepth              int `json:"folderDepth"`
+	FolderDepth              int    `json:"folderDepth"`
 	StartProcessingFieldName string `json:"startProcessingFieldName"`
 }
 
@@ -21,7 +21,7 @@ func processLevel(previousIndex int, previousPath string, level int, folderDepth
 	rowCheck := false
 	currentLevel := level + 1
 
-	for currentIndex := previousIndex + 1; currentIndex < len(sheet.Rows) && rowCheck == false; currentIndex ++ {
+	for currentIndex := previousIndex + 1; currentIndex < len(sheet.Rows) && rowCheck == false; currentIndex++ {
 		if len(sheet.Rows[currentIndex].Cells) >= currentLevel+1 {
 
 			if sheet.Rows[currentIndex].Cells[currentLevel-1].String() != "" {
