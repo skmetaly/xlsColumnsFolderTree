@@ -1,0 +1,6 @@
+{
+  "basePath": "output",
+  "xlsPath": "example.xlsx",
+  "folderDepth": 3,
+  "startProcessingFieldName": "MAINFOLDER"
+}
